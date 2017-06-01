@@ -26,7 +26,7 @@
 					$fname = (isset($_POST['fname'])    ? $_POST['fname']   : '');
 					$lname = (isset($_POST['lname'])    ? $_POST['lname']   : '');
 
-					$sql= "SELECT id, fname, lname
+					$sql= "SELECT customerid, fname, lname
 					FROM customers
 					WHERE fname LIKE '$fname' AND lname LIKE '$lname' LIMIT 1";
 					$result = mysqli_query($conn, $sql);
@@ -34,7 +34,7 @@
 					if (mysqli_num_rows($result) > 0) {
 					    // output data of each row
 					    while($row = mysqli_fetch_assoc($result)) {
-									echo "ID: " . $row["id"]. "<br>";
+									echo "ID: " . $row["customerid"]. "<br>";
 					        echo "First Name: " . $row["fname"]. "<br>";
 					        echo "Last Name: " . $row["lname"]. "<br><hr>";
 					    }
