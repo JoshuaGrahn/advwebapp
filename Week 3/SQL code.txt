@@ -1,0 +1,13 @@
+// add foreign key to table 'orders' from 'customers'
+
+ALTER TABLE Orders
+ADD FOREIGN KEY (customerid) REFERENCES customers(customerid);
+
+// create table 'orders' with foreign key - 1 step
+
+CREATE TABLE orders (
+    orderid mediumint(9) NOT NULL PRIMARY KEY,
+    conf_num varchar(255),
+    customerid mediumint(9) FOREIGN KEY REFERENCES customers(customerid),
+    salesrep varchar(255)
+);
