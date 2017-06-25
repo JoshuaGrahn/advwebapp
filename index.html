@@ -8,6 +8,24 @@
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script src="javascript/storage.js"></script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1287176094714633',
+      xfbml      : true,
+      version    : 'v2.9'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 </head>
 	<body>
 		<div id="page" data-role="page" data-theme="b" >
@@ -22,6 +40,14 @@
 					<a href="Week 3/index.html">Week 3</a><br />
 
 				</div>
+
+				<div
+  				class="fb-like"
+  				data-share="true"
+  				data-width="450"
+  				data-show-faces="true">
+				</div>
+
 				<div data-role="footer" data-theme="b">
 	  <h4>Joshua Grahn &copy; 2017</h4>
 	</div>
