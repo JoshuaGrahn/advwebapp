@@ -8,10 +8,42 @@
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script src="javascript/storage.js"></script>
+
+<script>
+	var Notification = window.Notification || window.mozNotification || window.webkitNotification;
+
+	Notification.requestPermission(function (permission) {
+		// console.log(permission);
+	});
+
+	function show() {
+		var instance = new Notification(
+			"Save Record", {
+				body: "You have successfully saved your record!",
+				icon: "data:image/png;base64,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"
+
+			}
+		);
+
+		instance.onclick = function () {
+			// Something to do
+		};
+		instance.onerror = function () {
+			// Something to do
+		};
+		instance.onshow = function () {
+			// Something to do
+		};
+		instance.onclose = function () {
+			// Something to do
+		};
+	}
+</script>
+
 </head>
 	<body>
 		<div id="page" data-role="page" data-theme="b" >
-	<div data-role="header" data-theme="b">
+	<div data-role="header" data-theme="b" <button type="button" onclick="show()">Save Record</button>>
 <h1>
 	Find your contact
 		</h1>	</div>
